@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 // npm install --save jsonwebtoken 
 const jwt = require('jsonwebtoken') // apres avoir installer on l'importe
 
-const userSchema = require('../models/user'); // le schema est utilisé dans nos fonctions donc on l'importe
+const User = require('../models/user'); // le schema est utilisé dans nos fonctions donc on l'importe
 
 exports.signup = (req, res, next) => {
   bcrypt.hash(req.body.password, 10) // on demande a hasher le password dans le body de la requete
