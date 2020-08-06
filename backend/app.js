@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser'); // installation de bodyParser et require pour pouvoir lire les requetes du body
 const userRoutes = require('./routes/user') // est utilisé ici donc on le require 
 const saucesRoutes = require('./routes/sauces')
+const path = require('path')
+
 mongoose.connect('mongodb+srv://terence:terence972@cluster0.scuij.mongodb.net/test?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
@@ -22,5 +24,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.json()) // indique à l'app d'utiliser la méthode json de bodyParser pour lire les requêtes du body
 app.use('/api/auth', userRoutes)
 app.use('/api/sauces', saucesRoutes)
+app.use('/images', express.static(path.join(__dirname, '/images')))
 
 module.exports = app; // pour pouvoir importer mon app dans mon server.js 
