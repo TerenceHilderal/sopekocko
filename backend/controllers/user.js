@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 // npm install --save jsonwebtoken 
 const jwt = require('jsonwebtoken') // apres avoir installer on l'importe
+// cree un fichier environnement pour stocker le mot de passe en dehors du code 
+require('dotenv').config()
+
 
 const User = require('../models/user'); // le schema est utilisé dans nos fonctions donc on l'importe
 
@@ -39,7 +42,7 @@ exports.login = (req, res, next) => {
             userId: user._id,
             token: jwt.sign(         // .sign permet d'encoder un nouveau token
               { userId: user._id, },
-              'RANDOM_TOKEN_SECRET',  // encodage avec des caractères secrets
+              process.env.JWT_TOKEN,  // encodage avec des caractères secrets
               { expiresIn: '24h' }
             )
           });
