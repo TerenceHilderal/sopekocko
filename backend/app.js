@@ -5,8 +5,12 @@ const bodyParser = require('body-parser'); // installation de bodyParser et requ
 const userRoutes = require('./routes/user') // est utilisé ici donc on le require 
 const saucesRoutes = require('./routes/sauces')
 const path = require('path')
+// cree un fichier environnement pour stocker le mot de passe en dehors du code 
+require('dotenv').config()
 
-mongoose.connect('mongodb+srv://moderator:moderator@cluster0.scuij.mongodb.net/test?retryWrites=true&w=majority',
+
+mongoose.connect(process.env.DB_ADMIN,
+
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
