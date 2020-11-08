@@ -9,7 +9,7 @@ Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous
 Start `ng serve` to gain access to the development server. Go to `http: // localhost: 4200 /`. The application will reload automatically if you modify a source file.
 
 ## Description
-
+Backend and API development using NodeJS Express, mongoDB.
 Site where the user can add, modify, delete a sauce.
 Possibility of logging in.
 Reinforced security with helmet
